@@ -1,19 +1,30 @@
-function TodoApp ({notasApp}) {
+import { useState } from "react";
 
-    const mostrarNotas = () => {
-        console.log(notasApp)
-    };
+function TodoApp () {
+
+    const notass = [
+    {
+      id: crypto.randomUUID(),
+      text: "Soy la nota 1",
+    },
+    {
+      id: crypto.randomUUID(),
+      text: "Soy la nota 2"
+    }
+  ];
+
+    const [notas, setNotas] = useState(notass);
+
+
 
     return (
         <>
-            <h1>App de notas</h1>
+            <h1>Notas</h1>
             <ul>
-                <li>{notasApp[0].text}</li>
-                <li>{notasApp[1].text}</li>
+                <li>{notas[0].text}</li>
+                <li>{notas[1].text}</li>
             </ul>
-            <button onClick={mostrarNotas}>
-                Mostrar notas por consola
-            </button>
+            
         </>
     );
 }
