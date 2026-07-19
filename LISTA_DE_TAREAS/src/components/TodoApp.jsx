@@ -1,5 +1,8 @@
 function TodoApp ({notasApp}) {
 
+    const mostrarNotas = () => {
+        console.log(notasApp)
+    };
 
     return (
         <>
@@ -8,6 +11,9 @@ function TodoApp ({notasApp}) {
                 <li>{notasApp[0].text}</li>
                 <li>{notasApp[1].text}</li>
             </ul>
+            <button onClick={mostrarNotas}>
+                Mostrar notas por consola
+            </button>
         </>
     );
 }
