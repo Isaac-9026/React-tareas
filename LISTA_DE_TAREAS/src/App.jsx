@@ -4,13 +4,23 @@ import TodoApp from "./components/TodoApp";
 //`<h1>${titulo}</h1>`
 // <></> | Fragment
 
+//Pasar Props
+
 function App() {
-  const titulo = "Curso de React";
+  const notas = [
+    {
+      id: crypto.randomUUID(),
+      text: "Soy la nota 1",
+    },
+    {
+      id: crypto.randomUUID(),
+      text: "Soy la nota 2"
+    }
+  ];
 
   return (
     <section className='containerTodoApp'>
-      <TodoApp></TodoApp>
-      <h1 className='titulo'>{titulo}</h1>
+      <TodoApp notasApp = {notas}></TodoApp>
     </section>
   );
 }
