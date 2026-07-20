@@ -1,3 +1,4 @@
+import styles from "./TodoApp.module.css";
 import { useState } from "react";
 
 function TodoApp () {
@@ -16,9 +17,9 @@ function TodoApp () {
 
     return (
         <>
-            <h1>Notas</h1>
-            <ul>
-              {notas.map((nota) => <li key={nota.id}>{nota.text}</li>)}
+            <h1 className={styles.titulo}>Notas</h1>
+            <ul className={styles.notelist}>
+              {notas.map((nota) => <li className={styles.noteItem} key={nota.id}>{nota.text}</li>)}
             </ul>
             
         </>

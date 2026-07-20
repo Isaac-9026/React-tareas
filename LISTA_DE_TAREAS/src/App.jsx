@@ -1,4 +1,4 @@
-import './App.css';
+import './index.css';
 import TodoApp from "./components/TodoApp";
 import { useState } from 'react';
 
