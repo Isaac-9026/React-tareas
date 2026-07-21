@@ -1,29 +1,49 @@
 import styles from "./TodoApp.module.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import TodoForm from "./TodoForm";
 
-function TodoApp () {
-    const notass = [
-    {
-      id: crypto.randomUUID(),  
-      text: "Soy la nota 1",
-    },
-    {
-      id: crypto.randomUUID(),
-      text: "Soy la nota 2"
-    }
-  ];
-    const [notas, setNotas] = useState(notass);
-    // map = retorna un array
+function TodoApp() {
+  const [notas, setNotas] = useState([]);
+  
+  useEffect( () => {
+    const fetchData = async () => {
+        try {
+            const response = await fetch("http://localhost:3000/notas");
 
-    return (
-        <>
-            <h1 className={styles.titulo}>Notas</h1>
-            <ul className={styles.notelist}>
-              {notas.map((nota) => <li className={styles.noteItem} key={nota.id}>{nota.text}</li>)}
-            </ul>
-            
-        </>
-    );
+            if (!response.ok){
+                throw new Error(`Error http: ${response.status}`);
+            }
+            const data = await response.json();
+            setNotas(data);
+            console.log("Notas Cargadas")
+
+        } catch (error) {
+            console.log(error);
+        }
+    };
+
+    fetchData()
+
+  }, []);
+
+
+  const agregarNota = (nuevaNota) => {
+    setNotas([...notas, nuevaNota])
+  }
+
+  return (
+    <>
+      <h1 className={styles.titulo}>Notas</h1>
+      <TodoForm onAgregarNota={agregarNota}/>
+      <ul className={styles.notelist}>
+        {notas.map((nota) => (
+          <li className={styles.noteItem} key={nota.id}>
+            {nota.text}{nota.completed ? "✅" : "❎"}
+          </li>
+        ))}
+      </ul>
+    </> 
+  );
 }
 
 export default TodoApp;

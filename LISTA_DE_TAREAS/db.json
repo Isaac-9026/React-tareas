@@ -1,0 +1,30 @@
+{
+  "notas": [
+    {
+      "id": "1",
+      "text": "Aprender React",
+      "completed": false
+    },
+    {
+      "id": "2",
+      "text": "Aprender Node",
+      "completed": true
+    },
+    {
+      "id": "3",
+      "text": "Aprender Express",
+      "completed": false
+    },
+    {
+      "id": "4",
+      "text": "Aprender MongoDB",
+      "completed": false
+    },
+    {
+      "text": "nueva nota",
+      "completed": false,
+      "id": "EIICL_B6-W8"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}
