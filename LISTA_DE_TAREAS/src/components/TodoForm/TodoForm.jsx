@@ -1,4 +1,6 @@
+import styles from "./TodoForm.module.css"
 import { useState } from "react";
+import { Plus } from "lucide-react";
 
 const TodoForm = ({onAgregarNota}) => {
   const [textNote, setTextNote] = useState("");
@@ -40,11 +42,13 @@ const TodoForm = ({onAgregarNota}) => {
   } */
 
   return (
-    <div>
+    <div className={styles.formContainer}>
       <h2>Todo Form</h2>
       <form onSubmit={handleSubmit}>
         <input type="text" id="nota" name="nota" value={textNote} onChange={(event) => setTextNote(event.target.value)}/>
-        <button type="submit">Crear Nota</button>
+        <button type="submit">
+          <Plus size={16} />
+          Crear Nota</button>
       </form>
     </div>
   );

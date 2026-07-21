@@ -1,6 +1,8 @@
 import styles from "./TodoApp.module.css";
 import { useState, useEffect } from "react";
-import TodoForm from "./TodoForm";
+import TodoForm from "./TodoForm/TodoForm";
+import {SquarePen} from "lucide-react"
+import { Trash2 } from "lucide-react";
 
 function TodoApp() {
   const [notas, setNotas] = useState([]);
@@ -38,7 +40,13 @@ function TodoApp() {
       <ul className={styles.notelist}>
         {notas.map((nota) => (
           <li className={styles.noteItem} key={nota.id}>
-            {nota.text}{nota.completed ? "✅" : "❎"}
+            <span>
+                {nota.text}{nota.completed ? "✅" : "❎"}
+            </span>
+            <div className={styles.iconsContainer}>
+                <SquarePen size={16} />
+                <Trash2 size={16} />
+            </div>
           </li>
         ))}
       </ul>

@@ -24,6 +24,16 @@
       "text": "nueva nota",
       "completed": false,
       "id": "EIICL_B6-W8"
+    },
+    {
+      "text": "Aprender SpringBoot",
+      "completed": false,
+      "id": "hY28SKF-Xw8"
+    },
+    {
+      "text": "Desaprender React",
+      "completed": false,
+      "id": "-WA192Cq9ec"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
