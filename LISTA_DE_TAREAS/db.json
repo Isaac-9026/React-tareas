@@ -1,11 +1,6 @@
 {
   "notas": [
     {
-      "id": "1",
-      "text": "Aprender React",
-      "completed": false
-    },
-    {
       "id": "2",
       "text": "Aprender Node",
       "completed": true
@@ -26,7 +21,7 @@
       "id": "hY28SKF-Xw8"
     },
     {
-      "text": "Desaprender React",
+      "text": "Aprender React",
       "completed": false,
       "id": "-WA192Cq9ec"
     }
