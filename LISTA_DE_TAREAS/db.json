@@ -8,21 +8,21 @@
     {
       "id": "3",
       "text": "Aprender Express",
-      "completed": false
+      "completed": true
     },
     {
       "id": "4",
       "text": "Aprender MongoDB",
-      "completed": false
+      "completed": true
     },
     {
       "text": "Aprender SpringBoot",
-      "completed": false,
+      "completed": true,
       "id": "hY28SKF-Xw8"
     },
     {
       "text": "Aprender React",
-      "completed": false,
+      "completed": true,
       "id": "-WA192Cq9ec"
     }
   ],

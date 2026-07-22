@@ -56,6 +56,29 @@ function TodoApp() {
     }));
   };
 
+  const marcarComoCompleta =  async (notaId) => {
+    try {
+      const nota = notas.find(nota => nota.id === notaId)
+      const response = await fetch(`http://localhost:3000/notas/${notaId}`, {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({completed: !nota.completed})
+      })
+
+      if(!response.ok) {
+        throw new Error(`Error al actualizar la nota: ${response.status}`)
+      }
+
+      const notaActualizada = await response.json()
+      setNotas(notas.map(nota => nota.id === notaId ? notaActualizada : nota))
+      
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
   return (
     <>
       <h1 className={styles.titulo}>Notas</h1>
@@ -67,6 +90,9 @@ function TodoApp() {
                 {nota.text}{nota.completed ? "✅" : "❎"}
             </span>
             <div className={styles.iconsContainer}>
+                <button onClick={ () => marcarComoCompleta(nota.id)}>
+                  {nota.completed ? "Desmarcar" : "Completed"}
+                </button>
                 <SquarePen onClick={() => setNotasEditandoId(nota.id)} size={26} />
                 <Trash2  onClick={() => {eliminarNota(nota.id)}} size={26} />
             </div>
